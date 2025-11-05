@@ -5,6 +5,11 @@ import exp from "constants";
 import dotenv from 'dotenv';
 import { UserModel } from "../../../User/infrastructure/ORM/UserModel";
 import { RoleModel } from "../../../Role/infrastructure/ORM/RoleModel";
+import { StatusModel } from "../../../Status/infrastructure/ORM/StatusModel";
+import { SellerModel } from "../../../Seller/infrastructure/ORM/SellerModel";
+import { PatientModel } from "../../../Patient/infrastructure/ORM/PatientModel";
+import { DoctorModel } from "../../../Doctor/infrastructure/ORM/DoctorModel";
+import { BranchOfficeModel } from "../../../BranchOffice/infrastructure/ORM/BranchOfficeModel";
 dotenv.config();
 
 
@@ -26,7 +31,7 @@ const sequelize = new Sequelize({
 });
 
 
-const models = [UserModel, RoleModel];
+const models = [UserModel, RoleModel, StatusModel, SellerModel, PatientModel,DoctorModel, BranchOfficeModel];
 models.forEach((model) => model.initialize(sequelize))
 
 // ACÁ DEBAJO DE ESTE COMENTARIO, VAN LAS RELACIONES ENTRE MODELOS
