@@ -1,13 +1,13 @@
 import { Model, Sequelize,DataTypes } from "sequelize";
 
-export class BranchOfficeModel extends Model{
-    public id?:number;
-    public name!:string;
-    public address!: string;
-    public active!: boolean;
+export class MaterialModel extends Model{
+    public id!: number;
+    public name!: string;
+    public active!:boolean;
+
 
     public static initialize(sequelize:Sequelize){
-        BranchOfficeModel.init({
+        MaterialModel.init({
             id:{
                 type: DataTypes.INTEGER,
                 primaryKey:true,
@@ -17,14 +17,15 @@ export class BranchOfficeModel extends Model{
                 type: DataTypes.STRING,
                 allowNull:false
             },
-            address:{
-                type: DataTypes.STRING,
-                allowNull:false
-            },
+            active:{
+                type: DataTypes.BOOLEAN,
+                allowNull:true,
+                defaultValue:true
+            }
         },{
                 sequelize,
-                modelName: 'branch_office',
-                tableName: 'branch_offices',
+                modelName: 'material',
+                tableName: 'materials',
                 timestamps: true   
             
         })

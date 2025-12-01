@@ -1,34 +1,39 @@
 import { Model, Sequelize,DataTypes } from "sequelize";
 
-export class DoctorModel extends Model{
+export class LensFrameModel extends Model{
     public id!:number;
-    public firstName!:string;
-    public lastName!:string;
-    public mat_nac!: string;
-    public mat_prov!: string;
+    public templeNumber!:string;
+    public brand!:string;
+    public price!: number;
+    public commission!: boolean;
+    public commissionPercentage!:number;
     public active!: boolean;
 
     public static initialize(sequelize:Sequelize){
-        DoctorModel.init({
+        LensFrameModel.init({
             id:{
                 type: DataTypes.INTEGER,
                 primaryKey:true,
                 autoIncrement:true
             },
-            firstName:{
+            templeNumber:{
                 type: DataTypes.STRING,
                 allowNull:false
             },
-            lastName:{
+            brand:{
                 type: DataTypes.STRING,
                 allowNull:false
             },
-            mat_nac:{
-                type: DataTypes.STRING,
+            price:{
+                type: DataTypes.INTEGER,
                 allowNull:false
             },
-            mat_prov:{
-                type: DataTypes.STRING,
+            commission:{
+                type: DataTypes.BOOLEAN,
+                allowNull:false
+            },
+             commissionPercentage:{
+                type: DataTypes.INTEGER,
                 allowNull:false
             },
             active:{
@@ -38,8 +43,8 @@ export class DoctorModel extends Model{
             }
         },{
                 sequelize,
-                modelName: 'doctor',
-                tableName: 'doctors',
+                modelName: 'lens_frame',
+                tableName: 'lens_frames',
                 timestamps: true   
             
         })

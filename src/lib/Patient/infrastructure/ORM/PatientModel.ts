@@ -5,9 +5,8 @@ export class PatientModel extends Model{
     public firstName!:string;
     public lastName!:string;
     public dni!: string;
-    public address!:string;
-    public email!: string;
     public phone!: string;
+    public observation!:string;
     public active!: boolean;
 
     public static initialize(sequelize:Sequelize){
@@ -29,15 +28,11 @@ export class PatientModel extends Model{
                 type: DataTypes.STRING,
                 allowNull:false
             },
-             address:{
-                type: DataTypes.STRING,
-                allowNull:false
-            },
-             email:{
-                type: DataTypes.STRING,
-                allowNull:false
-            },
              phone:{
+                type: DataTypes.STRING,
+                allowNull:false
+            },
+             observation:{
                 type: DataTypes.STRING,
                 allowNull:false
             },

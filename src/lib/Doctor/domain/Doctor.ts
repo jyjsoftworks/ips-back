@@ -2,9 +2,8 @@ export class Doctor{
     public id?:number;
     public firstName:string;
     public lastName:string;
-    public dni: string;
-    public email: string;
-    public phone: string;
+    public mat_nac: string;
+    public mat_prov: string;
     public active: boolean;
 
 
@@ -17,9 +16,8 @@ export class Doctor{
             id: this.id,
             firstName: this.firstName,
             lastName: this.lastName,
-            dni: this.dni,
-            email: this.email,
-            phone: this.phone,
+            mat_nac: this.mat_nac,
+            mat_prov: this.mat_prov,
             active: this.active
         }
     }

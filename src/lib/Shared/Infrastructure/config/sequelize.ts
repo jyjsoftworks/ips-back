@@ -10,6 +10,14 @@ import { SellerModel } from "../../../Seller/infrastructure/ORM/SellerModel";
 import { PatientModel } from "../../../Patient/infrastructure/ORM/PatientModel";
 import { DoctorModel } from "../../../Doctor/infrastructure/ORM/DoctorModel";
 import { BranchOfficeModel } from "../../../BranchOffice/infrastructure/ORM/BranchOfficeModel";
+import { LetterModel } from "../../../Letter/infrastructure/ORM/LetterModel";
+import { GlassModel } from "../../../Glass/infrastructure/ORM/GlassModel";
+import { CategoryModel } from "../../../Category/infrastructure/ORM/CategoryModel";
+import { MaterialModel } from "../../../Material/infrastructure/ORM/MaterialModel";
+import { LensFrameModel } from "../../../LensFrame/infrastructure/ORM/LensFrameModel";
+import { TreatmentModel } from "../../../Treatment/infrastructure/ORM/TreatmentModel";
+import { LensModel } from "../../../Lens/infrastructure/ORM/LensModel";
+import { LensLetterModel } from "../../../LensLetter/infrastructure/ORM/LensLetterModel";
 dotenv.config();
 
 
@@ -31,13 +39,19 @@ const sequelize = new Sequelize({
 });
 
 
-const models = [UserModel, RoleModel, StatusModel, SellerModel, PatientModel,DoctorModel, BranchOfficeModel];
+const models = [UserModel, RoleModel, StatusModel, SellerModel, PatientModel,DoctorModel, BranchOfficeModel, LetterModel,CategoryModel,
+  MaterialModel,GlassModel, LensFrameModel,TreatmentModel, LensModel, LensLetterModel];
 models.forEach((model) => model.initialize(sequelize))
 
 // ACÁ DEBAJO DE ESTE COMENTARIO, VAN LAS RELACIONES ENTRE MODELOS
 
-
 UserModel.associate();
 RoleModel.associate();
+LetterModel.associate();
+GlassModel.associate();
+LensModel.associate();
+LensLetterModel.associate();
+
+
 
 export {sequelize};

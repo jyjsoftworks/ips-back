@@ -1,11 +1,10 @@
-export class BranchOffice{
+export class Material {
     public id?:number;
     public name:string;
-    public address: string;
     public active: boolean;
 
 
-    constructor(init?:Partial<BranchOffice>){
+    constructor(init?:Partial<Material>){
         Object.assign(this, init);
     }
 
@@ -13,7 +12,6 @@ export class BranchOffice{
         return{
             id: this.id,
             name: this.name,
-            address: this.address,
             active: this.active
         }
     }

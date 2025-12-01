@@ -3,9 +3,8 @@ export class Patient{
     public firstName:string;
     public lastName:string;
     public dni: string;
-    public address:string;
-    public email: string;
     public phone: string;
+    public observation:string;
     public active: boolean;
 
 
@@ -19,9 +18,8 @@ export class Patient{
             firstName: this.firstName,
             lastName: this.lastName,
             dni: this.dni,
-            address: this.address,
-            email: this.email,
             phone: this.phone,
+            observation: this.observation,
             active: this.active
         }
     }
