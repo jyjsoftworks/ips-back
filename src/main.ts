@@ -11,6 +11,7 @@ import { expressRoleRouter } from './lib/Role/infrastructure/ExpressRoleRouter';
 import { expressCategoryRouter } from './lib/Category/infrastructure/ExpressCategoryRouter';
 import { expressMaterialRouter } from './lib/Material/infrastructure/ExpressMaterialRouter';
 import { expressLensFrameRouter } from './lib/LensFrame/infrastructure/ExpressLensFrameRouter';
+import { expressTreatmentRouter } from './lib/Treatment/infrastructure/ExpressTreatmentRouter';
 import runSeeders from './seed';
 
 
@@ -38,6 +39,7 @@ app.use(checkAuth,expressRoleRouter)
 app.use(checkAuth,expressCategoryRouter)
 app.use(checkAuth,expressMaterialRouter)
 app.use(checkAuth,expressLensFrameRouter)
+app.use(checkAuth,expressTreatmentRouter)
 
 
 

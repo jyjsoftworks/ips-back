@@ -25,12 +25,18 @@ import { CreateLensFrame } from "../LensFrame/application/CreateLensFrame";
 import { GetLensFrame } from "../LensFrame/application/GetLensFrame";
 import { UpdateLensFrame } from "../LensFrame/application/UpdateLensFrame";
 import { GetByIdLensFrame } from "../LensFrame/application/GetByIdLensFrame";
+import { TreatmentOrmRepository } from "../Treatment/infrastructure/ORM/TreatmentOrmRepository";
+import { CreateTreatment } from "../Treatment/application/CreateTreatment";
+import { GetTreatment } from "../Treatment/application/GetTreatment";
+import { UpdateTreatment } from "../Treatment/application/UpdateTreatment";
+import { GetByIdTreatment } from "../Treatment/application/GetByIdTreatment";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
 const categoryRepository= new CategoryORMRepository();
 const materialRepository= new MaterialORMRepository();
 const lensFrameRepository= new LensFrameORMRepository();
+const treatmentRepository= new TreatmentOrmRepository();
 
 
 export const serviceContainer= {
@@ -65,6 +71,12 @@ export const serviceContainer= {
         getAll: new GetLensFrame(lensFrameRepository),
         update: new UpdateLensFrame(lensFrameRepository),
         getById: new GetByIdLensFrame(lensFrameRepository)
+    },
+    treatment: {
+        create: new CreateTreatment(treatmentRepository),
+        getAll: new GetTreatment(treatmentRepository),
+        update: new UpdateTreatment(treatmentRepository),
+        getById: new GetByIdTreatment(treatmentRepository)
     }
     
 }

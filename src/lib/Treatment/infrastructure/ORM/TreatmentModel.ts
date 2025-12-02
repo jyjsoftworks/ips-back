@@ -9,6 +9,7 @@ export class TreatmentModel extends Model {
   public price!: number;
   public commission!: boolean;
   public commissionPercentage!: number;
+  public active!: boolean;
 
   public readonly createdAt!: Date;
   public readonly updatedAt!: Date;
@@ -49,6 +50,11 @@ export class TreatmentModel extends Model {
           type: DataTypes.DECIMAL(5, 2),
           allowNull: true,
         },
+        active:{
+                type: DataTypes.BOOLEAN,
+                allowNull:true,
+                defaultValue:true
+            }
       },
       {
         sequelize,
