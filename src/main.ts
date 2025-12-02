@@ -8,6 +8,7 @@ dotenv.config();
 import { expressUserRouter } from './lib/User/infrastructure/ExpressUserRouter';
 import { expressAuthRouter } from './lib/User/auth/ExpressAuthRouter';
 import { expressRoleRouter } from './lib/Role/infrastructure/ExpressRoleRouter';
+import { expressCategoryRouter } from './lib/Category/infrastructure/ExpressCategoryRouter';
 import runSeeders from './seed';
 
 
@@ -32,6 +33,7 @@ app.use(cors(corsOptions));
 app.use(expressAuthRouter)
 app.use(checkAuth,expressUserRouter);
 app.use(checkAuth,expressRoleRouter)
+app.use(checkAuth,expressCategoryRouter)
 
 
 
