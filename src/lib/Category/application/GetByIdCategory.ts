@@ -15,7 +15,7 @@ export class GetByIdCategory {
 
             if (!categories) {
                 throw new GlobalAppException(
-                    204,
+                    404,
                     '2006',
                     errorMessages['2006'],
                     `No se encontró la categoría con id ${id}`

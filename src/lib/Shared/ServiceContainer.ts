@@ -20,11 +20,17 @@ import { CreateMaterial } from "../Material/application/CreateMaterial";
 import { GetMaterial } from "../Material/application/GetMaterial";
 import { UpdateMaterial } from "../Material/application/UpdateMaterial";
 import { GetByIdMaterial } from "../Material/application/GetByIdMaterial";
+import { LensFrameORMRepository } from "../LensFrame/infrastructure/ORM/LensFrameOrmRepository";
+import { CreateLensFrame } from "../LensFrame/application/CreateLensFrame";
+import { GetLensFrame } from "../LensFrame/application/GetLensFrame";
+import { UpdateLensFrame } from "../LensFrame/application/UpdateLensFrame";
+import { GetByIdLensFrame } from "../LensFrame/application/GetByIdLensFrame";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
 const categoryRepository= new CategoryORMRepository();
 const materialRepository= new MaterialORMRepository();
+const lensFrameRepository= new LensFrameORMRepository();
 
 
 export const serviceContainer= {
@@ -53,6 +59,12 @@ export const serviceContainer= {
         getAll: new GetMaterial(materialRepository),
         update: new UpdateMaterial(materialRepository),
         getById: new GetByIdMaterial(materialRepository)
+    },
+    lensFrame: {
+        create: new CreateLensFrame(lensFrameRepository),
+        getAll: new GetLensFrame(lensFrameRepository),
+        update: new UpdateLensFrame(lensFrameRepository),
+        getById: new GetByIdLensFrame(lensFrameRepository)
     }
     
 }

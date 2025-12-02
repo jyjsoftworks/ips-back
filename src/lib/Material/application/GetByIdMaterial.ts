@@ -15,7 +15,7 @@ export class GetByIdMaterial {
 
             if (!materials) {
                 throw new GlobalAppException(
-                    204,
+                    404,
                     '2006',
                     errorMessages['2006'],
                     `No se encontró el material con id ${id}`
