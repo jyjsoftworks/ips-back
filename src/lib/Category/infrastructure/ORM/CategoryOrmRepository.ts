@@ -55,12 +55,12 @@ export class CategoryORMRepository implements CategoryRepository {
     
 
     async getByName(name: string): Promise<Category | null> {
-        const healthcare = await CategoryModel.findOne({
+        const category = await CategoryModel.findOne({
             where: {
                 name: { [Op.iLike]: name }
             }
         });
-        return healthcare ? this.mapToDomain(healthcare) : null;
+        return category ? this.mapToDomain(category) : null;
     }
 
     async createCategories(category: Category): Promise<void> {

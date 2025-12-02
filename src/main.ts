@@ -9,6 +9,7 @@ import { expressUserRouter } from './lib/User/infrastructure/ExpressUserRouter';
 import { expressAuthRouter } from './lib/User/auth/ExpressAuthRouter';
 import { expressRoleRouter } from './lib/Role/infrastructure/ExpressRoleRouter';
 import { expressCategoryRouter } from './lib/Category/infrastructure/ExpressCategoryRouter';
+import { expressMaterialRouter } from './lib/Material/infrastructure/ExpressMaterialRouter';
 import runSeeders from './seed';
 
 
@@ -34,6 +35,7 @@ app.use(expressAuthRouter)
 app.use(checkAuth,expressUserRouter);
 app.use(checkAuth,expressRoleRouter)
 app.use(checkAuth,expressCategoryRouter)
+app.use(checkAuth,expressMaterialRouter)
 
 
 

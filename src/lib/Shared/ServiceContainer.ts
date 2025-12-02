@@ -15,10 +15,16 @@ import { CategoryORMRepository } from "../Category/infrastructure/ORM/CategoryOr
 import { GetCategory } from "../Category/application/GetCategory";
 import { UpdateCategory } from "../Category/application/UpdateCategory";
 import { GetByIdCategory } from "../Category/application/GetByIdCategory";
+import { MaterialORMRepository } from "../Material/infrastructure/ORM/MaterialOrmRepository";
+import { CreateMaterial } from "../Material/application/CreateMaterial";
+import { GetMaterial } from "../Material/application/GetMaterial";
+import { UpdateMaterial } from "../Material/application/UpdateMaterial";
+import { GetByIdMaterial } from "../Material/application/GetByIdMaterial";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
 const categoryRepository= new CategoryORMRepository();
+const materialRepository= new MaterialORMRepository();
 
 
 export const serviceContainer= {
@@ -41,6 +47,12 @@ export const serviceContainer= {
         getAll: new GetCategory(categoryRepository),
         update: new UpdateCategory(categoryRepository),
         getById: new GetByIdCategory(categoryRepository)
+    },
+    material: {
+        create: new CreateMaterial(materialRepository),
+        getAll: new GetMaterial(materialRepository),
+        update: new UpdateMaterial(materialRepository),
+        getById: new GetByIdMaterial(materialRepository)
     }
     
 }
