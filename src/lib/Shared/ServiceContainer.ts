@@ -30,6 +30,11 @@ import { CreateTreatment } from "../Treatment/application/CreateTreatment";
 import { GetTreatment } from "../Treatment/application/GetTreatment";
 import { UpdateTreatment } from "../Treatment/application/UpdateTreatment";
 import { GetByIdTreatment } from "../Treatment/application/GetByIdTreatment";
+import { CreateGlass } from "../Glass/application/CreateGlass";
+import { GetGlass } from "../Glass/application/GetGlass";
+import { UpdateGlass } from "../Glass/application/UpdateGlass";
+import { GetGlassById } from "../Glass/application/GetGlassById";
+import { GlassOrmRepository } from "../Glass/infrastructure/ORM/GlassOrmRepository";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -37,7 +42,7 @@ const categoryRepository= new CategoryORMRepository();
 const materialRepository= new MaterialORMRepository();
 const lensFrameRepository= new LensFrameORMRepository();
 const treatmentRepository= new TreatmentOrmRepository();
-
+const glassRepository= new GlassOrmRepository();
 
 export const serviceContainer= {
 
@@ -77,6 +82,12 @@ export const serviceContainer= {
         getAll: new GetTreatment(treatmentRepository),
         update: new UpdateTreatment(treatmentRepository),
         getById: new GetByIdTreatment(treatmentRepository)
-    }
+    },
+    glass: {
+    create: new CreateGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+    getAll: new GetGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+    update: new UpdateGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+    getById: new GetGlassById(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+}
     
 }

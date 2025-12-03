@@ -12,6 +12,7 @@ import { expressCategoryRouter } from './lib/Category/infrastructure/ExpressCate
 import { expressMaterialRouter } from './lib/Material/infrastructure/ExpressMaterialRouter';
 import { expressLensFrameRouter } from './lib/LensFrame/infrastructure/ExpressLensFrameRouter';
 import { expressTreatmentRouter } from './lib/Treatment/infrastructure/ExpressTreatmentRouter';
+import { expressGlassRouter } from './lib/Glass/infrastructure/ExpressGlassRouter';
 import runSeeders from './seed';
 
 
@@ -40,6 +41,7 @@ app.use(checkAuth,expressCategoryRouter)
 app.use(checkAuth,expressMaterialRouter)
 app.use(checkAuth,expressLensFrameRouter)
 app.use(checkAuth,expressTreatmentRouter)
+app.use(checkAuth,expressGlassRouter)
 
 
 
