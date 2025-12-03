@@ -40,6 +40,11 @@ import { GetBranchOffice } from "../BranchOffice/application/GetAllBranchOffice"
 import { UpdateBranchOffice } from "../BranchOffice/application/UpdateBranchOffice";
 import { GetBranchOfficeById } from "../BranchOffice/application/GetBranchOfficeById";
 import { BranchOfficeOrmRepository } from "../BranchOffice/infrastructure/ORM/BranchOfficeOrmRepository";
+import { CreateSeller } from "../Seller/application/CreateSeller";
+import { GetSeller } from "../Seller/application/GetSeller";
+import { UpdateSeller } from "../Seller/application/UpdateSeller";
+import { GetSellerById } from "../Seller/application/GetSellerById";
+import { SellerOrmRepository } from "../Seller/infrastructure/ORM/SellerOrmRepository";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -49,6 +54,7 @@ const lensFrameRepository= new LensFrameORMRepository();
 const treatmentRepository= new TreatmentOrmRepository();
 const glassRepository= new GlassOrmRepository();
 const branchOfficeRepository= new BranchOfficeOrmRepository();
+const sellerRepository= new SellerOrmRepository();
 
 export const serviceContainer= {
 
@@ -101,6 +107,12 @@ export const serviceContainer= {
         update: new UpdateBranchOffice(branchOfficeRepository),
         getById: new GetBranchOfficeById(branchOfficeRepository),
     },
+    seller: {
+        create: new CreateSeller(sellerRepository, userRepository,branchOfficeRepository),
+        getAll: new GetSeller(sellerRepository, userRepository,branchOfficeRepository),
+        update: new UpdateSeller(sellerRepository, userRepository,branchOfficeRepository),
+        getById: new GetSellerById(sellerRepository, userRepository,branchOfficeRepository),
+    }
 
     
 }

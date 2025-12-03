@@ -14,6 +14,8 @@ import { expressLensFrameRouter } from './lib/LensFrame/infrastructure/ExpressLe
 import { expressTreatmentRouter } from './lib/Treatment/infrastructure/ExpressTreatmentRouter';
 import { expressGlassRouter } from './lib/Glass/infrastructure/ExpressGlassRouter';
 import { expressBranchOfficeRouter } from "./lib/BranchOffice/infrastructure/ExpressBranchOfficeRouter";
+import { expressSellerRouter } from "./lib/Seller/infrastructure/ExpressSellerRouter";
+
 import runSeeders from './seed';
 
 
@@ -44,6 +46,7 @@ app.use(checkAuth,expressLensFrameRouter)
 app.use(checkAuth,expressTreatmentRouter)
 app.use(checkAuth,expressGlassRouter)
 app.use(checkAuth, expressBranchOfficeRouter);
+app.use(expressSellerRouter);
 
 
 app.use((err:any, req: Request, res:Response, next: NextFunction)=> {
