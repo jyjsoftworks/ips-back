@@ -13,6 +13,7 @@ import { expressMaterialRouter } from './lib/Material/infrastructure/ExpressMate
 import { expressLensFrameRouter } from './lib/LensFrame/infrastructure/ExpressLensFrameRouter';
 import { expressTreatmentRouter } from './lib/Treatment/infrastructure/ExpressTreatmentRouter';
 import { expressGlassRouter } from './lib/Glass/infrastructure/ExpressGlassRouter';
+import { expressBranchOfficeRouter } from "./lib/BranchOffice/infrastructure/ExpressBranchOfficeRouter";
 import runSeeders from './seed';
 
 
@@ -42,7 +43,7 @@ app.use(checkAuth,expressMaterialRouter)
 app.use(checkAuth,expressLensFrameRouter)
 app.use(checkAuth,expressTreatmentRouter)
 app.use(checkAuth,expressGlassRouter)
-
+app.use(checkAuth, expressBranchOfficeRouter);
 
 
 app.use((err:any, req: Request, res:Response, next: NextFunction)=> {

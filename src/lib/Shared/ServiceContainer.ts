@@ -35,6 +35,11 @@ import { GetGlass } from "../Glass/application/GetGlass";
 import { UpdateGlass } from "../Glass/application/UpdateGlass";
 import { GetGlassById } from "../Glass/application/GetGlassById";
 import { GlassOrmRepository } from "../Glass/infrastructure/ORM/GlassOrmRepository";
+import { CreateBranchOffice } from "../BranchOffice/application/CreateBranchOffice";
+import { GetBranchOffice } from "../BranchOffice/application/GetAllBranchOffice";
+import { UpdateBranchOffice } from "../BranchOffice/application/UpdateBranchOffice";
+import { GetBranchOfficeById } from "../BranchOffice/application/GetBranchOfficeById";
+import { BranchOfficeOrmRepository } from "../BranchOffice/infrastructure/ORM/BranchOfficeOrmRepository";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -43,6 +48,7 @@ const materialRepository= new MaterialORMRepository();
 const lensFrameRepository= new LensFrameORMRepository();
 const treatmentRepository= new TreatmentOrmRepository();
 const glassRepository= new GlassOrmRepository();
+const branchOfficeRepository= new BranchOfficeOrmRepository();
 
 export const serviceContainer= {
 
@@ -84,10 +90,17 @@ export const serviceContainer= {
         getById: new GetByIdTreatment(treatmentRepository)
     },
     glass: {
-    create: new CreateGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
-    getAll: new GetGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
-    update: new UpdateGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
-    getById: new GetGlassById(glassRepository, categoryRepository, materialRepository, treatmentRepository),
-}
+        create: new CreateGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+        getAll: new GetGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+        update: new UpdateGlass(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+        getById: new GetGlassById(glassRepository, categoryRepository, materialRepository, treatmentRepository),
+    },
+    branchOffice: {
+        create: new CreateBranchOffice(branchOfficeRepository),
+        getAll: new GetBranchOffice(branchOfficeRepository),
+        update: new UpdateBranchOffice(branchOfficeRepository),
+        getById: new GetBranchOfficeById(branchOfficeRepository),
+    },
+
     
 }
