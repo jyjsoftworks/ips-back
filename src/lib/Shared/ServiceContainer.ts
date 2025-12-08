@@ -45,6 +45,11 @@ import { GetSeller } from "../Seller/application/GetSeller";
 import { UpdateSeller } from "../Seller/application/UpdateSeller";
 import { GetSellerById } from "../Seller/application/GetSellerById";
 import { SellerOrmRepository } from "../Seller/infrastructure/ORM/SellerOrmRepository";
+import { DoctorOrmRepository } from "../Doctor/infrastructure/ORM/DoctorOrmRepository";
+import { CreateDoctor } from "../Doctor/application/CreateDoctor";
+import { GetDoctor } from "../Doctor/application/GetDoctor";
+import { UpdateDoctor } from "../Doctor/application/UpdateDoctor";
+import { GetDoctorById } from "../Doctor/application/GetDoctorById";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -55,6 +60,7 @@ const treatmentRepository= new TreatmentOrmRepository();
 const glassRepository= new GlassOrmRepository();
 const branchOfficeRepository= new BranchOfficeOrmRepository();
 const sellerRepository= new SellerOrmRepository();
+const doctorRepository = new DoctorOrmRepository();
 
 export const serviceContainer= {
 
@@ -112,6 +118,12 @@ export const serviceContainer= {
         getAll: new GetSeller(sellerRepository, userRepository,branchOfficeRepository),
         update: new UpdateSeller(sellerRepository, userRepository,branchOfficeRepository),
         getById: new GetSellerById(sellerRepository, userRepository,branchOfficeRepository),
+    },
+    doctor: {
+        create: new CreateDoctor(doctorRepository),
+        getAll: new GetDoctor(doctorRepository),
+        update: new UpdateDoctor(doctorRepository),
+        getById: new GetDoctorById(doctorRepository),
     }
 
     
