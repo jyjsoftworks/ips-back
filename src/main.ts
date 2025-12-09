@@ -16,6 +16,7 @@ import { expressGlassRouter } from './lib/Glass/infrastructure/ExpressGlassRoute
 import { expressBranchOfficeRouter } from "./lib/BranchOffice/infrastructure/ExpressBranchOfficeRouter";
 import { expressSellerRouter } from "./lib/Seller/infrastructure/ExpressSellerRouter";
 import { expressDoctorRouter } from "./lib/Doctor/infrastructure/ExpressDoctorRouter";
+import { expressPatientRouter } from './lib/Patient/infrastructure/ExpressPatientRouter';
 
 import runSeeders from './seed';
 
@@ -49,6 +50,7 @@ app.use(checkAuth,expressGlassRouter)
 app.use(checkAuth, expressBranchOfficeRouter);
 app.use(checkAuth, expressSellerRouter);
 app.use(checkAuth, expressDoctorRouter);
+app.use(checkAuth, expressPatientRouter);
 
 
 

@@ -50,6 +50,11 @@ import { CreateDoctor } from "../Doctor/application/CreateDoctor";
 import { GetDoctor } from "../Doctor/application/GetDoctor";
 import { UpdateDoctor } from "../Doctor/application/UpdateDoctor";
 import { GetDoctorById } from "../Doctor/application/GetDoctorById";
+import { CreatePatient } from "../Patient/application/CreatePatient";
+import { PatientOrmRepository } from "../Patient/infrastructure/ORM/PatientOrmRepository";
+import { GetPatient } from "../Patient/application/GetPatient";
+import { UpdatePatient } from "../Patient/application/UpdatePatient";
+import { GetPatientById } from "../Patient/application/GetPatientById";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -61,6 +66,7 @@ const glassRepository= new GlassOrmRepository();
 const branchOfficeRepository= new BranchOfficeOrmRepository();
 const sellerRepository= new SellerOrmRepository();
 const doctorRepository = new DoctorOrmRepository();
+const patientRepository = new PatientOrmRepository();
 
 export const serviceContainer= {
 
@@ -124,6 +130,12 @@ export const serviceContainer= {
         getAll: new GetDoctor(doctorRepository),
         update: new UpdateDoctor(doctorRepository),
         getById: new GetDoctorById(doctorRepository),
+    },
+     patient: {
+        create: new CreatePatient(patientRepository),
+        getAll: new GetPatient(patientRepository),
+        update: new UpdatePatient(patientRepository),
+        getById: new GetPatientById(patientRepository),
     }
 
     
