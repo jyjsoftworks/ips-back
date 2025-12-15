@@ -55,6 +55,11 @@ import { PatientOrmRepository } from "../Patient/infrastructure/ORM/PatientOrmRe
 import { GetPatient } from "../Patient/application/GetPatient";
 import { UpdatePatient } from "../Patient/application/UpdatePatient";
 import { GetPatientById } from "../Patient/application/GetPatientById";
+import { LetterOrmRepository } from "../Letter/infrastructure/ORM/LetterOrmRepository";
+import { CreateLetter } from "../Letter/application/CreateLetter";
+import { GetLetter } from "../Letter/application/GetLetter";
+import { UpdateLetter } from "../Letter/application/UpdateLetter";
+import { GetLetterById } from "../Letter/application/GetLetterById";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -67,6 +72,7 @@ const branchOfficeRepository= new BranchOfficeOrmRepository();
 const sellerRepository= new SellerOrmRepository();
 const doctorRepository = new DoctorOrmRepository();
 const patientRepository = new PatientOrmRepository();
+const letterRepository = new LetterOrmRepository();
 
 export const serviceContainer= {
 
@@ -136,6 +142,12 @@ export const serviceContainer= {
         getAll: new GetPatient(patientRepository),
         update: new UpdatePatient(patientRepository),
         getById: new GetPatientById(patientRepository),
+    },
+       letter: {
+        create: new CreateLetter(letterRepository,patientRepository,doctorRepository,sellerRepository),
+        getAll: new GetLetter(letterRepository,patientRepository,doctorRepository,sellerRepository, userRepository, branchOfficeRepository),
+        update: new UpdateLetter(letterRepository,patientRepository,doctorRepository,sellerRepository),
+        getById: new GetLetterById(letterRepository,patientRepository,doctorRepository,sellerRepository,userRepository, branchOfficeRepository),
     }
 
     

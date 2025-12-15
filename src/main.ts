@@ -17,6 +17,7 @@ import { expressBranchOfficeRouter } from "./lib/BranchOffice/infrastructure/Exp
 import { expressSellerRouter } from "./lib/Seller/infrastructure/ExpressSellerRouter";
 import { expressDoctorRouter } from "./lib/Doctor/infrastructure/ExpressDoctorRouter";
 import { expressPatientRouter } from './lib/Patient/infrastructure/ExpressPatientRouter';
+import { expressLetterRouter } from './lib/Letter/infrastructure/ExpressLetterRouter';
 
 import runSeeders from './seed';
 
@@ -51,6 +52,7 @@ app.use(checkAuth, expressBranchOfficeRouter);
 app.use(checkAuth, expressSellerRouter);
 app.use(checkAuth, expressDoctorRouter);
 app.use(checkAuth, expressPatientRouter);
+app.use(checkAuth, expressLetterRouter);
 
 
 
