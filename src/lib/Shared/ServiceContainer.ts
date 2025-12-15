@@ -60,6 +60,11 @@ import { CreateLetter } from "../Letter/application/CreateLetter";
 import { GetLetter } from "../Letter/application/GetLetter";
 import { UpdateLetter } from "../Letter/application/UpdateLetter";
 import { GetLetterById } from "../Letter/application/GetLetterById";
+import { CreateLens } from "../Lens/application/CreateLens";
+import { GetLens } from "../Lens/application/GetLens";
+import { UpdateLens } from "../Lens/application/UpdateLens";
+import { GetLensById } from "../Lens/application/GetLensById";
+import { LensOrmRepository } from "../Lens/infrastructure/ORM/LensOrmRepository";
 
 const userRepository= new UserORMRepository();
 const roleRepository= new RoleORMRepository();
@@ -73,6 +78,7 @@ const sellerRepository= new SellerOrmRepository();
 const doctorRepository = new DoctorOrmRepository();
 const patientRepository = new PatientOrmRepository();
 const letterRepository = new LetterOrmRepository();
+const lensRepository = new LensOrmRepository();
 
 export const serviceContainer= {
 
@@ -148,7 +154,12 @@ export const serviceContainer= {
         getAll: new GetLetter(letterRepository,patientRepository,doctorRepository,sellerRepository, userRepository, branchOfficeRepository),
         update: new UpdateLetter(letterRepository,patientRepository,doctorRepository,sellerRepository),
         getById: new GetLetterById(letterRepository,patientRepository,doctorRepository,sellerRepository,userRepository, branchOfficeRepository),
-    }
-
+    },
+    lens: {
+        create: new CreateLens(lensRepository, lensFrameRepository, glassRepository),
+        getAll: new GetLens(lensRepository, lensFrameRepository, glassRepository,categoryRepository,materialRepository,treatmentRepository),
+        update: new UpdateLens(lensRepository, lensFrameRepository, glassRepository),
+        getById: new GetLensById(lensRepository, lensFrameRepository, glassRepository,categoryRepository,materialRepository,treatmentRepository),
+    },
     
 }

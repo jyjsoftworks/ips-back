@@ -18,6 +18,7 @@ import { expressSellerRouter } from "./lib/Seller/infrastructure/ExpressSellerRo
 import { expressDoctorRouter } from "./lib/Doctor/infrastructure/ExpressDoctorRouter";
 import { expressPatientRouter } from './lib/Patient/infrastructure/ExpressPatientRouter';
 import { expressLetterRouter } from './lib/Letter/infrastructure/ExpressLetterRouter';
+import { expressLensRouter } from './lib/Lens/infrastructure/ExpressLensRouter';
 
 import runSeeders from './seed';
 
@@ -53,6 +54,7 @@ app.use(checkAuth, expressSellerRouter);
 app.use(checkAuth, expressDoctorRouter);
 app.use(checkAuth, expressPatientRouter);
 app.use(checkAuth, expressLetterRouter);
+app.use(checkAuth, expressLensRouter);
 
 
 
